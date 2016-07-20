@@ -1,34 +1,29 @@
 require_relative '../app/fb_generator'
 
 RSpec.describe FbGenerator, type: :model do
-  describe '#ouput' do
-    it 'return 1 when input 1' do
-      expect(FbGenerator.output(1)).to eq(['1'])
+  describe '#to_array_by_range' do
+    it 'return 1 when input is 1' do
+      expect(FbGenerator.to_array_by_range(1)).to eq(['1'])
     end
 
-    it "return [1, 2, Fuzz] when input 3" do
-      expect(FbGenerator.output(3)).to eq(['1', '2', 'Fuzz'])
+    it 'return [1, 2, Fizz] when input is 3' do
+      expect(FbGenerator.to_array_by_range(3)).to eq(%w(1 2 Fizz))
     end
 
-    it "return [1, 2, Fuzz, 4, Buzz] when input 5" do
-      expect(FbGenerator.output(5)).to eq(['1', '2', 'Fuzz', '4', 'Buzz'])
+    it 'return [1, 2, Fizz, 4, Buzz] when input 5' do
+      expect(FbGenerator.to_array_by_range(5)).to eq(%w(1 2 Fizz 4 Buzz))
     end
 
-    it 'return Fuzz when number is a multiple of 3' do
-      expect(FbGenerator.output(6)).to eq(['1', '2', 'Fuzz', '4', 'Buzz', 'Fuzz'])
+    it 'return Fizz when number is a multiple of 3 in range' do
+      expect(FbGenerator.to_array_by_range(6)).to eq(%w(1 2 Fizz 4 Buzz Fizz))
     end
 
-    it 'return Buzz when number is a multiple of 5' do
-      expect(FbGenerator.output(10)).to eq(['1', '2', 'Fuzz', '4', 'Buzz', 'Fuzz', '7', '8', 'Fuzz', 'Buzz'])
+    it 'return Buzz when number is a multiple of 5 in range' do
+      expect(FbGenerator.to_array_by_range(10)).to eq(%w(1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz))
     end
 
-    it 'return FuzzBuzz when number is a common multiple of 3 and 5' do
-      expect(FbGenerator.output(15)).to eq(
-        [
-          '1', '2', 'Fuzz', '4', 'Buzz',
-          'Fuzz', '7', '8', 'Fuzz', 'Buzz',
-          '11', 'Fuzz', '13', '14', 'FuzzBuzz'
-        ])
+    it 'return FizzBuzz when number is a common multiple of 3 and 5 in range' do
+      expect(FbGenerator.to_array_by_range(15)).to eq(%w(1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz))
     end
   end
 end
