@@ -1,8 +1,10 @@
 class FbGenerator
   def self.output(param)
-    if param == 3
-      return 'Fuzz'
+    (1..param).map do |num|
+      if num == 3
+        next 'Fuzz'
+      end
+      num.to_s
     end
-    param.to_s
   end
 end
