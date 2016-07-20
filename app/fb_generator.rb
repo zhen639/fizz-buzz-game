@@ -1,4 +1,4 @@
-class FbGenerator
+module FbGenerator
   def self.to_array_by_range(max, min=1)
     (min..max).map do |num|
       result = ''
