@@ -17,5 +17,9 @@ RSpec.describe FbGenerator, type: :model do
     it 'return Fuzz when number is a multiple of 3' do
       expect(FbGenerator.output(6)).to match_array(['1', '2', 'Fuzz', '4', 'Buzz', 'Fuzz'])
     end
+
+    it 'return Buzz when number is a multiple of 5' do
+      expect(FbGenerator.output(10)).to match_array(['1', '2', 'Fuzz', '4', 'Buzz', 'Fuzz', '7', '8', 'Fuzz', 'Buzz'])
+    end
   end
 end
