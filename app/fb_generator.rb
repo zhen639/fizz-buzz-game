@@ -1,12 +1,10 @@
 class FbGenerator
-  def self.to_array_by_range(param)
-    (1..param).map do |num|
-      case
-      when num % 15 == 0 then 'FizzBuzz'
-      when (num % 3 == 0 || has_char_in?(num, 3)) then 'Fizz'
-      when num % 5 == 0 then 'Buzz'
-      else num.to_s
-      end
+  def self.to_array_by_range(max, min=1)
+    (min..max).map do |num|
+      result = ''
+      result += 'Fizz' if num % 3 == 0 || has_char_in?(num, 3)
+      result += 'Buzz' if num % 5 == 0 || has_char_in?(num, 5)
+      result == '' ? num.to_s : result
     end
   end
 

@@ -26,5 +26,9 @@ RSpec.describe FbGenerator, type: :model do
     it 'return Fizz when number is a common multiple of 3 in range or includes 3' do
       expect(FbGenerator.to_array_by_range(15)).to eq(%w(1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz Fizz 14 FizzBuzz))
     end
+
+    it 'return Buzz when number is a common multiple of 5 in range or includes 5' do
+      expect(FbGenerator.to_array_by_range(53, 48)).to eq(%w(Fizz 49 Buzz FizzBuzz Buzz FizzBuzz))
+    end
   end
 end
