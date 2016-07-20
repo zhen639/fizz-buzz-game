@@ -3,6 +3,8 @@ class FbGenerator
     (1..param).map do |num|
       if num == 3
         next 'Fuzz'
+      elsif num == 5
+        next 'Buzz'
       end
       num.to_s
     end
