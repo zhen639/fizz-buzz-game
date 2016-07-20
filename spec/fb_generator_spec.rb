@@ -1,4 +1,5 @@
 require_relative '../app/fb_generator'
+require 'spec_helper'
 
 RSpec.describe FbGenerator, type: :model do
   describe '#to_array_by_range' do
@@ -22,8 +23,8 @@ RSpec.describe FbGenerator, type: :model do
       expect(FbGenerator.to_array_by_range(10)).to eq(%w(1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz))
     end
 
-    it 'return FizzBuzz when number is a common multiple of 3 and 5 in range' do
-      expect(FbGenerator.to_array_by_range(15)).to eq(%w(1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz))
+    it 'return Fizz when number is a common multiple of 3 in range or includes 3' do
+      expect(FbGenerator.to_array_by_range(15)).to eq(%w(1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz Fizz 14 FizzBuzz))
     end
   end
 end
